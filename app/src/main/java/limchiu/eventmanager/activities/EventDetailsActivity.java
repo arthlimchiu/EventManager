@@ -118,6 +118,11 @@ public class EventDetailsActivity extends AppCompatActivity {
     }
 
     private void populateViews() {
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.event_details_map, MapFragment.newInstance(id))
+                .commit();
+
         String[] projection = new String[]{
                 EventsTable.COLUMN_NAME,
                 EventsTable.COLUMN_ADDRESS,
